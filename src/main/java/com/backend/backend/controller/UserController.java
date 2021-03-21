@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.backend.model.newbie;
+import com.backend.backend.model.roles;
 import com.backend.backend.model.users;
 import com.backend.backend.repository.NewbieRepo;
+import com.backend.backend.repository.RoleRepository;
 import com.backend.backend.repository.UserRepository;
 
 
@@ -33,7 +35,7 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private NewbieRepo newbieRepo;
+	private RoleRepository roleRepository;
 
 	@GetMapping("/get")
 	public @ResponseBody  List<users> getAll() {
