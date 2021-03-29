@@ -1,7 +1,5 @@
 package com.backend.backend.model;
 
-
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -56,13 +54,10 @@ public class roles {
 	public void setdescription(String description) {
 		Description = description;
 	}
-    @OneToMany(mappedBy = "roles",fetch = FetchType.LAZY)
-    private List<users> users;
+//    @OneToMany(mappedBy = "roles",fetch = FetchType.LAZY)
+//    private List<users> users;
 
 
-//	public Set<users> getListUsers() {
-//		return listUsers;
-//	}
 
 
 	  

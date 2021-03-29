@@ -1,8 +1,9 @@
 package com.backend.backend.model;
 
-import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -11,6 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
@@ -18,161 +22,110 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 public class users {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Id", nullable = false, columnDefinition = "Id")
-	private int Id;
-
-	@Column(name = "\"First_name\"")
-	private String First_name;
-
-	@Column(name = "Last_name")
-	private String Last_name;
-
-	@Column(name = "PhoneNumber")
-	private BigInteger PhoneNumber;
-
-	@Column(name = "Email")
-	private String Emaill;
-
-	@Column(name = "PassWord")
-	private String PassWord;
-
-	@Column(name = "Money")
-	private Double Money;
-
-	@Column(name = "block")
-	private boolean block;
-
-	@Column(name = "Created_at")
-	private Date Created_at;
-
-	@ManyToOne
-	@JoinColumn(name = "Id_role", nullable = false)
-	private roles roles;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO )
+	@Column(name = "id", nullable = false, columnDefinition = "Id")
+	private int id;
+	
+	@Column(name = "first_name")
+	private String first_name;
+	
+	@Column(name = "last_name")
+	private String last_name;
+	
+	@Column(name = "phonenumber")
+	private BigInteger phonenumber;
+	
+	@Column(name ="email")
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name= "money")
+	private Double money;
+	
+	@Column(name ="block")
+	private boolean block;
+	
+	@Column(name =  "created_at")
+	private Date created_at;
 	@ManyToOne()
-	@JoinColumn(name = "Id_LoaiDangNhap", nullable = false)
+	@JoinColumn(name = "id_LoaiDangNhap", nullable = false)
 	private loaidangnhap loaidangnhap;
-
-	public loaidangnhap getLoaidangnhap() {
-		return loaidangnhap;
-	}
-
-	public void setLoaidangnhap(loaidangnhap loaidangnhap) {
-		this.loaidangnhap = loaidangnhap;
-	}
-
-	@Column(name = "Id_role", insertable = false, updatable = false)
-	private int Id_role;
-
-	public int getId_role() {
-		return Id_role;
-	}
-
-	public void setId_role(int id_role) {
-		Id_role = id_role;
-	}
-
-	@Column(name = "Id_LoaiDangNhap", insertable = false, updatable = false)
-	private int Id_LoaiDangNhap;
-
-	public int getId() {
-		return Id;
-	}
-
-	public roles getRoles() {
+	
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name ="user_roles",joinColumns = @JoinColumn(name ="user_id")
+	,inverseJoinColumns = @JoinColumn(name="role_id"))
+	private Set<roles> roles = new HashSet<>();
+	
+	public Set<roles> getRoles() {
 		return roles;
 	}
-
-	public void setRoles(roles roles) {
+	public void setRoles(Set<roles> roles) {
 		this.roles = roles;
 	}
-
+	public int getid() {
+		return id;
+	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
-
-
 	public String getFirst_name() {
-		return First_name;
+		return first_name;
 	}
-
 	public void setFirst_name(String first_name) {
-		First_name = first_name;
+		this.first_name = first_name;
 	}
-
 	public String getLast_name() {
-		return Last_name;
+		return last_name;
 	}
-
 	public void setLast_name(String last_name) {
-		Last_name = last_name;
+		this.last_name = last_name;
 	}
-
-	public BigInteger getPhoneNumber() {
-		return PhoneNumber;
+	public BigInteger getPhonenumber() {
+		return phonenumber;
 	}
-
-	public void setPhoneNumber(BigInteger phoneNumber) {
-		PhoneNumber = phoneNumber;
+	public void setPhonenumber(BigInteger phonenumber) {
+		this.phonenumber = phonenumber;
 	}
-
-	public String getEmaill() {
-		return Emaill;
+	public String getEmail() {
+		return email;
 	}
-
 	public void setEmaill(String emaill) {
-		Emaill = emaill;
+		this.email = emaill;
 	}
-
-	public String getPassWord() {
-		return PassWord;
+	public String getPassword() {
+		return password;
 	}
-
-	public void setPassWord(String passWord) {
-		PassWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
 	public Double getMoney() {
-		return Money;
+		return money;
 	}
-
 	public void setMoney(Double money) {
-		Money = money;
+		this.money = money;
 	}
-
 	public boolean isBlock() {
 		return block;
 	}
-
 	public void setBlock(boolean block) {
 		this.block = block;
 	}
-
 	public Date getCreated_at() {
-		return Created_at;
+		return created_at;
 	}
-
 	public void setCreated_at(Date created_at) {
-		Created_at = created_at;
+		this.created_at = created_at;
 	}
-
-	public int getId_LoaiDangNhap() {
-		return Id_LoaiDangNhap;
+	public loaidangnhap getLoaidangnhap() {
+		return loaidangnhap;
 	}
-
-	public void setId_LoaiDangNhap(int id_LoaiDangNhap) {
-		Id_LoaiDangNhap = id_LoaiDangNhap;
-	}
-//	public Boolean getconfirmEmail() {
-//		return ConfirmEmail;
+//	public void setLoaidangnhap(loaidangnhap loaidangnhap) {
+//		this.loaidangnhap = loaidangnhap;
 //	}
-//
-//	public void setConfirmEmail(Boolean confirmEmail) {
-//		ConfirmEmail = confirmEmail;
-//	}
-//	private Boolean ConfirmEmail;
 
 }
