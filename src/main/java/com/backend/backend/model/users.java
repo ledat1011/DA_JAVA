@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name = "users")
 public class users {
@@ -49,16 +51,49 @@ public class users {
 	
 	@Column(name =  "created_at")
 	private Date created_at;
+	@Column(name ="confirmEmail", columnDefinition="Boolean precision  default 'false'")
+	private Boolean confirmEmail;
+	public Boolean getConfirmEmail() {
+		return confirmEmail;
+	}
+	public void setConfirmEmail(Boolean confirmEmail) {
+		this.confirmEmail = confirmEmail;
+	}
 	@ManyToOne()
-	@JoinColumn(name = "id_LoaiDangNhap", nullable = false)
+	@JoinColumn(name = "id_LoaiDangNhap", nullable = false, insertable = false, updatable = false)
 	private loaidangnhap loaidangnhap;
 	
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name ="user_roles",joinColumns = @JoinColumn(name ="user_id")
-	,inverseJoinColumns = @JoinColumn(name="role_id"))
-	private Set<roles> roles = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<roles> roles = new HashSet<>();
+    @Column(name =  "id_LoaiDangNhap")
+	private int id_LoaiDangNhap;
 	
+	public int getId_LoaiDangNhap() {
+		return id_LoaiDangNhap;
+	}
+	public void setId_LoaiDangNhap(int id_LoaiDangNhap) {
+		this.id_LoaiDangNhap = id_LoaiDangNhap;
+	}
+	public users() {};
+	public users(String first_name, String last_name, BigInteger phonenumber, String email, String password,
+			Double money, boolean block, int id_LoaiDangNhap ,Date created_at) {
+		super();
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.phonenumber = phonenumber;
+		this.email = email;
+		this.password = password;
+		this.money = money;
+		this.block = block;
+		this.id_LoaiDangNhap = id_LoaiDangNhap;
+		this.created_at = created_at;
+		this.confirmEmail = false;
+		
+	}
 	public Set<roles> getRoles() {
 		return roles;
 	}
