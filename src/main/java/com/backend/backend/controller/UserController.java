@@ -27,8 +27,10 @@ import com.backen.backend.DTO.JwtResponse;
 import com.backen.backend.DTO.LoginRequest;
 import com.backend.backend.common.JwtUtils;
 import com.backend.backend.model.newbie;
+import com.backend.backend.model.roles;
 import com.backend.backend.model.users;
 import com.backend.backend.repository.NewbieRepo;
+import com.backend.backend.repository.RoleRepository;
 import com.backend.backend.repository.UserRepository;
 import com.backend.backend.service.UserDetailsImpl;
 
@@ -44,6 +46,7 @@ public class UserController {
 	private JwtUtils jwtUtils;
 	@Autowired
 	private NewbieRepo newbieRepo;
+
 
 	@PostMapping("/login")
 	public Exception authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
