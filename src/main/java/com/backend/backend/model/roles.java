@@ -7,12 +7,18 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
+
+import com.backend.backend.common.ERole;
 
 
 
@@ -23,9 +29,10 @@ public class roles {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, columnDefinition = "id")
 	private int id;
-
-	@Column(name = "name_roles")
-	private String name_roles;
+    @Enumerated(EnumType.STRING)
+    @NaturalId
+	@Column(name = "name")
+	private ERole name;
 
 	@Column(name = "Description")
 	private String Description;
@@ -39,12 +46,12 @@ public class roles {
 		this.id = id;
 	}
 
-	public String getName_roles() {
-		return name_roles;
+	public ERole getName() {
+		return name;
 	}
 
-	public void setName_roles(String name_roles) {
-		this.name_roles = name_roles;
+	public void setName(ERole name) {
+		this.name = name;
 	}
 
 	public String getDescription() {

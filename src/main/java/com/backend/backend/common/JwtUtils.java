@@ -23,13 +23,14 @@ public class JwtUtils {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(JwtUtils.class);
 	
-	@Value("${bezkoder.app.jwtSecret}")
-	private static String jwtSectret;
+//	@Value("${bezkoder.app.jwtSecret}")
+	private static final String jwtSectret ="bezKoderSecretKey";
 	
-	@Value("${bezkoder.app.jwtExpirationMs}")
-	private static String jwtExpirationMs;
+//	@Value("${bezkoder.app.jwtExpirationMs}")
+	private static final int jwtExpirationMs =86400000;
 	
 	public String generateJwtToken(Authentication authentication) {
+		
 		UserDetailsImpl userDetailsImpl = (UserDetailsImpl) authentication.getPrincipal();
 		return Jwts.builder()
 				.setSubject(userDetailsImpl.getEmail())

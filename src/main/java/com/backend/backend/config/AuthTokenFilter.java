@@ -35,7 +35,6 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 		// TODO Auto-generated method stub
 		try {
 			String jwt = getJwtFromRequest(request);
-
 			if (StringUtils.hasText(jwt) && jwtUtils.validateJwtToken(jwt)) {
 				String username = jwtUtils.getEmailFromJwtToken(jwt);
 

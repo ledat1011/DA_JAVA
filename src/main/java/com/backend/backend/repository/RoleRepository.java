@@ -10,7 +10,7 @@ import com.backend.backend.model.roles;
 @Repository
 public interface RoleRepository  extends JpaRepository<roles, Long> {
 
-//	Optional<roles> findByname_roles(ERole name_roles);
+	Optional<roles> findByname(ERole name);
 	
 }
 
