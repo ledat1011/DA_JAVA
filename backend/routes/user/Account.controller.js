@@ -102,6 +102,7 @@ router.put("/confirmemail", async(req,res)=>{
 /* login page */
 router.post('/login', async (req, res, next) => {
     var data = req.body;
+    console.log("OKE");
     try {
         var checklog = await db.User.findOne({
             where: {

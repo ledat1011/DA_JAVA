@@ -1,2 +1,3 @@
 import axios from 'axios'
-export const typePostData = ()=> axios.get('/api/other/typepost').then( data => data.data)
+import { host } from '../_type'
+export const typePostData = ()=> axios.get(host.Node+'/api/other/typepost').then( data => data.data)

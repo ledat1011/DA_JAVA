@@ -95,7 +95,7 @@ class RouteComponent extends React.PureComponent {
         )
     }
     loginRoute = ({ component: Component, ...rest }) => {
-        console.log(this.state.user);
+        // console.log(this.state.user);
         return (
             <Route {...rest} render={props => (
                 this.state.user 

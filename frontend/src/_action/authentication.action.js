@@ -10,7 +10,7 @@ const login = (user, prevPath) => {
         dispatch(request())
         try {
             var check = await logins(user);
-            
+            console.log(user);
             if (check.data.status === false) {
                 dispatch(failure(check.data.error))
             } else {

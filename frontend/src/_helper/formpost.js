@@ -1,2 +1,3 @@
 import axios from 'axios'
-export const formpostData = ()=> axios.get('/api/other/formpost').then( data => data.data)
+import { host } from '../_type'
+export const formpostData = ()=> axios.get(host.Node+'/api/other/formpost').then( data => data.data)
