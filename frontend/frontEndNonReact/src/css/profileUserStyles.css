@@ -1,0 +1,211 @@
+.account-header{
+  background: #fff;
+  align-items: center;
+  color: #999;
+  position: relative;
+}
+
+/* .account-bar{
+  border-bottom: 1px solid #999;
+} */
+
+.nav-logo{
+  margin-top: 5px;
+  color: #000;
+}
+
+.account-bar--right small{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.account-bar--right{
+  float: right;
+  padding: 20px 0;
+}
+
+.account-bar--left{
+  padding: 20px 0;
+}
+
+/* tab-menu */
+
+.tab{
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.contents-in-tabs{
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* .tabBg1{
+  height: 100%;
+} */
+
+.tabBgFullvh{
+  height: 80vh;
+}
+
+.tabBgFull{
+  height: 100%;
+}
+
+.tab button{
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #555;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.tab button:hover{
+  background-color: #ddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tab button.active{
+  background-color: #f1f1f1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tabContents{
+  color: #555;
+  animation: fadeEffect 1s;
+  padding: 20px 0px;
+}
+
+.tabContents h5 span{
+  color: #f68a39;
+}
+
+/* tab-menu */
+
+.list-vertical{
+  padding: 0 20px;
+  flex-flow: column wrap;
+  list-style: none;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.list-vertical>li:not(:last-child){
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.list-vertical li{
+  padding: 12px 0;
+}
+
+.list-vertical li.active{
+  font-weight: 500;
+}
+
+.list-vertical li a{
+  color: #555;
+  text-decoration: none;
+}
+
+.label{
+  font-weight: 500;
+  width: 100%;
+}
+
+.account-input{
+  height: 39px;
+  padding: 10px 10px 10px 15px;
+  border-radius: 5px;
+  /* box-shadow: inset 0 1 px 2px 0 rgba(0,0,0,.15) !important; */
+  /* background-color: rgba(0,0,0,.07) !important; */
+  width: 90%;
+  border: 1px solid #ddd;
+}
+
+.gioitinh-radio{
+  list-style: none;
+}
+
+.radio--box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radiomark{
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio--box p{
+  padding-left: 30px;
+}
+
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Style the indicator (dot/circle) */
+.radio--box .radiomark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.radio--box:hover input ~ .radiomark {
+  background-color: #ccc;
+}
+
+.radio--box input:checked ~ .radiomark {
+  background-color: #f68a39;
+}
+
+.radio--box input:checked ~ .radiomark:after {
+  display: block;
+}
+
+.btn-update{
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f68a39;
+  color: #ddd;
+  font-weight: 700;
+  border-radius: 5px;
+  outline: 0;
+  /* float: right; */
+  width: 70%;
+}
+
+.btnPosition{
+  margin: 0 auto;
+  width: 40%;
+}
+
+.btn-icon-custom{
+  float: left;
+}
+
+/* Lịch sử bài đăng */
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}

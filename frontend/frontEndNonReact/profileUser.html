@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="./src/css/bootstrap.css">
+    <link rel="stylesheet" href="./src/css/profileUserStyles.css">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <script src="./src/js/bootstrap.js"></script>
+    <script src="./src/js/bootstrap.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/82b998ba19.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="account">
+        <div class="account-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="account-bar--left">
+                            <div class="navbar-nav">
+                                <a href="#" class="navbar-brand h1 nav-logo">
+                                    Navbar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="account-bar--right">
+                            <div class="account-bar-txt is-flex d-none d-md-flex">
+                                <div>
+                                    <small>Hôm nay</small>
+                                    <p class="font-weight-bold c-gray-3">
+                                        30/11/2020
+                                    </p>
+                                </div>
+                                <div class="ml_24">
+                                    <small>Tài khoản của tôi</small>
+                                    <p class="font-weight-bold c-gray-3">
+                                        Nguyễn Hoàng Hưng
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-menu container">
+                <div class="tab">
+                    <button class="tabLinks" onclick="tabMenu(event, 'editProfile')" id="defaultOpen">Cài đặt tài
+                        khoản</button>
+                    <button class="tabLinks" onclick="tabMenu(event, 'postLiked')">Bài viết đã lưu</button>
+                    <button class="tabLinks" onclick="tabMenu(event, 'historyOrder')">Lịch sử bài đăng</button>
+                    <button class="tabLinks" onclick="tabMenu(event, 'messageBox')">Tin nhắn</button>
+                </div>
+            </div>
+            <div class="contents-in-tabs">
+                <div class="container">
+                    <div class="tabContents" id="editProfile">
+                        <h5><span>Hoàng Hưng</span> - Thông tin tài khoản</h5>
+                        <p>Cá nhân hóa tài khoản bằng việc cập nhật thông tin của bạn</p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul class="list-vertical">
+                                    <li class="active"><a href="#">Thông tin tài khoản</a></li>
+                                    <li><a href="#">Thay đổi mật khẩu</a></li>
+                                    <li><a href="#">Thanh toán</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <p class="label mb_6">Tên</p>
+                                    <input type="text" name="first_name" data-vv-as="Tên" class="account-input"
+                                        placeholder="Hưng" disabled>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline"><i class="fas fa-pencil-alt"></i></button>
+                                    </div>
+                                    <input type="text" name="first_name" data-vv-as="Tên" class="account-input"
+                                        placeholder="Hưng" hidden>
+                                </div>
+
+                                <div class="mt_24 input-group">
+                                    <p class="label mb_6">Họ và tên đệm</p>
+                                    <input type="text" name="last_name" data-vv-as="Họ và tên đệm" class="account-input"
+                                        placeholder="Hoàng" disabled>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline"><i class="fas fa-pencil-alt"></i></button>
+                                    </div>
+                                    <input type="text" name="last_name" data-vv-as="Họ và tên đệm" class="account-input"
+                                        placeholder="Hoàng" hidden>
+                                </div>
+
+                                <div class="mt_24 input-group">
+                                    <p class="label mb_6">Email</p>
+                                    <input type="text" name="Email" data-vv-as="Email" class="account-input"
+                                        placeholder="hung19997126@gmail.com" disabled>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline"><i class="fas fa-pencil-alt"></i></button>
+                                    </div>
+                                    <input type="text" name="last_name" data-vv-as="Họ và tên đệm" class="account-input"
+                                        placeholder="Hoàng" hidden>
+                                </div>
+
+                                <div class="mt_24 input-group">
+                                    <p class="label mb_6">Số điện thoại</p>
+                                    <input type="text" name="phoneNumber" data-vv-as="Số điện thoại"
+                                        class="account-input" placeholder="0123456789" disabled>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline"><i class="fas fa-pencil-alt"></i></button>
+                                    </div>
+                                    <input type="text" name="last_name" data-vv-as="Họ và tên đệm" class="account-input"
+                                        placeholder="Hoàng" hidden>
+                                </div>
+
+                                <div class="mt_24 input-group">
+                                    <p class="label mb_6">Địa chỉ</p>
+                                    <input type="text" name="address" data-vv-as="Địa chỉ" class="account-input"
+                                        disabled>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline"><i class="fas fa-pencil-alt"></i></button>
+                                    </div>
+                                    <input type="text" name="address" data-vv-as="Địa chỉ" class="account-input" hidden>
+                                </div>
+
+                                <div class="mt_24 input-group">
+                                    <p class="label mb_6">Ngày sinh</p>
+                                    <input type="text" name="birthDay" data-vv-as="Ngày sinh" class="account-input"
+                                        disabled>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline"><i class="fas fa-pencil-alt"></i></button>
+                                    </div>
+                                    <input type="text" name="birthDay" data-vv-as="Ngày sinh" class="account-input"
+                                        hidden>
+                                </div>
+
+                                <div class="mt_24">
+                                    <p class="label mb_6">Giới tính</p>
+                                    <div class="row">
+                                        <label class="radio--box col-md-4">
+                                            <input type="radio" checked="checked">
+                                            <span class="radiomark"></span>
+                                            <p>Nam</p>
+                                        </label>
+                                        <label class="radio--box col-md-4">
+                                            <input type="radio">
+                                            <span class="radiomark"></span>
+                                            <p>Nữ</p>
+                                        </label>
+                                        <label class="radio--box col-md-4">
+                                            <input type="radio">
+                                            <span class="radiomark"></span>
+                                            <p>Khác</p>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="btnPosition">
+                                    <button type="submit" class="btn-update">Cập nhật</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContents" id="historyOrder">
+                        <div class="container tabBgFull tabBgFullvh">
+                            <div class="row">
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabContents" id="postLiked">
+                        <div class="container tabBgFull">
+                            <h3>Bài viết đã lưu: 0</h3>
+
+                            <!-- Nếu có bài viết đã lưu vào thì hiện thị danh sách này -->
+                            <div class="row">
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Tên phòng trọ</h4>
+                                                <p class="card-text">Mô tả ngắn</p>
+                                                <p class="card-text">100.0</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContents" id="messageBox">
+                        <h2>Tin nhắn</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function tabMenu(evt, linkName) {
+            var i, tabContents, tabLinks;
+
+            //Lấy toàn bộ con của lớp tabContents và giấu đi
+            tabContents = document.getElementsByClassName("tabContents");
+            for (i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = "none";
+            }
+
+            //Lấy toàn bộ con của lớp tabLinks và bỏ lớp active
+            tabLinks = document.getElementsByClassName("tabLinks");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+
+            //Hiện tab hiện tại, thêm 1 lớp active và nút đã mở tab đó
+            document.getElementById(linkName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>

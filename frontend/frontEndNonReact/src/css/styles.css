@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ml_24{
+    margin-left: 24px !important;
+  }
+
+.mt_24{
+  margin-top: 24px !important;
+}
+
+.mb_6{
+  margin-bottom: 6px !important;
+}
+
+.c-gray-3{
+    color: #333;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
