@@ -25,6 +25,7 @@ import {project} from "./Model/project"
 import {street} from "./Model/street"
 import {mail} from "./Model/mail"
 import {report} from "./Model/report"
+import {user_roles} from "./Model/user_roles"
 
 
 const dbConfig = new sequelize.Sequelize(
@@ -74,12 +75,29 @@ export const Project = project(dbConfig);
 export const Street = street(dbConfig);
 export const Mail = mail(dbConfig);
 export const Report = report(dbConfig);
+export const User_roles = user_roles(dbConfig);
+User_roles.removeAttribute('id');
+
 // user - role
-Role.hasMany(User,{
-    foreignKey:"Id_role"
+//===================================
+// Role.hasMany(User,{
+//     foreignKey:"Id_role"
+// })
+// User.belongsTo(Role,{
+//     foreignKey:"Id_role"
+// })
+//=====================================
+Role.hasMany(User_roles,{
+    foreignKey:"role_id"
 })
-User.belongsTo(Role,{
-    foreignKey:"Id_role"
+User_roles.belongsTo(Role,{
+    foreignKey:"role_id"
+})
+User.hasMany(User_roles,{
+    foreignKey:"user_id"
+})
+User_roles.belongsTo(User,{
+    foreignKey:"user_id"
 })
 /** [user] ==> post */
 User.hasMany(Post,{

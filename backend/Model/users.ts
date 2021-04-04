@@ -10,7 +10,7 @@ interface UserAttributes {
   PassWord: string,
   Money: number,
   block: boolean,
-  Id_role: number,
+  // Id_role: number,
   Id_LoaiDangNhap:number,
   ConfirmEmaiil:boolean
   Created_at: Date,
@@ -42,7 +42,7 @@ export function users(sequelize: Sequelize): UserStatic {
     Email: DataType.STRING,
     Money: DataType.DECIMAL,
     block: DataType.BOOLEAN,
-    Id_role: DataType.INTEGER,
+    // Id_role: DataType.INTEGER,
     PassWord:DataType.STRING,
     Id_LoaiDangNhap: DataType.INTEGER,
     ConfirmEmaiil: DataType.BOOLEAN,

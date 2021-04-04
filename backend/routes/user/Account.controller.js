@@ -102,15 +102,15 @@ router.put("/confirmemail", async(req,res)=>{
 /* login page */
 router.post('/login', async (req, res, next) => {
     var data = req.body;
-    console.log("OKE");
+
     try {
         var checklog = await db.User.findOne({
             where: {
-                Email: data.fEmail,
+                Email: data.Email,
                 Id_LoaiDangNhap: 1,
-                PassWord: data.fPass
+                PassWord: data.PassWord
             },
-            include: [{ model: db.Role }]
+            include: [{ model: db.User_roles }]
         })
         if (checklog == null) {
             res.send({ status: false, error: "Sai tài khoản hoặc mật khẩu" })
@@ -222,7 +222,7 @@ router.post('/auth', async (req, res, next) => {
     var token = req.body.token
     try {
 
-        const check = await jwtHelper.verifyToken(token, accessTokenSecret);
+        const check = await jwtHelper.verifyToken(token, accessTokenSecret).data;
 
         let wish_list = await db.SavePost.findAll({ where: { IdUser: check.data.id } });
         res.send({ user: check, status: true, wish_list: wish_list })
@@ -239,7 +239,7 @@ router.get('/test', async function (req, res, next) {
     try {
         var detailConvenientInDatabase = await db.ChiTietTienIch.findAll({ where: { idPost: 6 } });
         var getConvenient = detailConvenientInDatabase.map(c => c.idTienIch);
-        res.send(getConvenient)
+        res.send(getConvenient);
     } catch (e) {
         res.json(e)
     }

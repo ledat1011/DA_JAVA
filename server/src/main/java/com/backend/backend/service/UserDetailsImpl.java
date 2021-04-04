@@ -31,7 +31,7 @@ public class UserDetailsImpl implements UserDetails {
 		this.authorities = authorities;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -70,7 +70,7 @@ public class UserDetailsImpl implements UserDetails {
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
 				.collect(Collectors.toList());
 		
-		return new UserDetailsImpl(users.getid(), users.getEmail(), users.getPassword(), authorities,users.getFirst_name(),users.getLast_name());
+		return new UserDetailsImpl(users.getId(), users.getEmail(), users.getPassWord(), authorities,users.getFirst_name(),users.getLast_name());
 	}
 	@Override public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

@@ -39,7 +39,7 @@ function users(sequelize) {
         Email: sequelize_1.DataTypes.STRING,
         Money: sequelize_1.DataTypes.DECIMAL,
         block: sequelize_1.DataTypes.BOOLEAN,
-        Id_role: sequelize_1.DataTypes.INTEGER,
+        // Id_role: DataType.INTEGER,
         PassWord: sequelize_1.DataTypes.STRING,
         Id_LoaiDangNhap: sequelize_1.DataTypes.INTEGER,
         ConfirmEmaiil: sequelize_1.DataTypes.BOOLEAN,

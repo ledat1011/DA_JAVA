@@ -34,6 +34,7 @@ public class JwtUtils {
 		UserDetailsImpl userDetailsImpl = (UserDetailsImpl) authentication.getPrincipal();
 		return Jwts.builder()
 				.setSubject(userDetailsImpl.getEmail())
+				.setId( userDetailsImpl.getId().toString())
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(new Date().getTime() + jwtExpirationMs))
 				.signWith(SignatureAlgorithm.HS512, jwtSectret)
@@ -41,6 +42,9 @@ public class JwtUtils {
 	}
 	public String getEmailFromJwtToken (String token) {
 		return Jwts.parser().setSigningKey(jwtSectret).parseClaimsJws(token).getBody().getSubject();
+	}
+	public String getIdFromJwtToken (String token) {
+		return Jwts.parser().setSigningKey(jwtSectret).parseClaimsJws(token).getBody().getId();
 	}
 	public  boolean validateJwtToken( String authToken) {
 		try {

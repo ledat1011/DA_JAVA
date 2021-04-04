@@ -1,7 +1,7 @@
 "use strict";
-require("dotenv").config();
 exports.__esModule = true;
-exports.Report = exports.Mail = exports.Street = exports.Project = exports.FormPost = exports.TypePost = exports.Ward = exports.District = exports.Province = exports.SavePost = exports.Reply = exports.LoaiTienIch = exports.Link = exports.Image = exports.DoanhThu = exports.DatCoc = exports.DanhGia = exports.ChiTietTienIch = exports.TienIch = exports.ThongBao = exports.ChiTietThongBao = exports.LoaiDangNhap = exports.BinhLuan = exports.Post = exports.Role = exports.User = void 0;
+require("dotenv").config();
+exports.User_roles = exports.Report = exports.Mail = exports.Street = exports.Project = exports.FormPost = exports.TypePost = exports.Ward = exports.District = exports.Province = exports.SavePost = exports.Reply = exports.LoaiTienIch = exports.Link = exports.Image = exports.DoanhThu = exports.DatCoc = exports.DanhGia = exports.ChiTietTienIch = exports.TienIch = exports.ThongBao = exports.ChiTietThongBao = exports.LoaiDangNhap = exports.BinhLuan = exports.Post = exports.Role = exports.User = void 0;
 var sequelize = require("sequelize");
 var users_1 = require("./Model/users");
 var roles_1 = require("./Model/roles");
@@ -29,6 +29,7 @@ var project_1 = require("./Model/project");
 var street_1 = require("./Model/street");
 var mail_1 = require("./Model/mail");
 var report_1 = require("./Model/report");
+var user_roles_1 = require("./Model/user_roles");
 var dbConfig = new sequelize.Sequelize((process.env.DB_DATABASE || "dacn_db"), (process.env.DB_USER || "NhaTro"), (process.env.DB_PASS || "Ledat1999"), {
     // port: Number(process.env.DB_PORT) || 54320,
     host: process.env.DB_HOST || "localhost",
@@ -69,12 +70,28 @@ exports.Project = project_1.project(dbConfig);
 exports.Street = street_1.street(dbConfig);
 exports.Mail = mail_1.mail(dbConfig);
 exports.Report = report_1.report(dbConfig);
+exports.User_roles = user_roles_1.user_roles(dbConfig);
+exports.User_roles.removeAttribute('id');
 // user - role
-exports.Role.hasMany(exports.User, {
-    foreignKey: "Id_role"
+//===================================
+// Role.hasMany(User,{
+//     foreignKey:"Id_role"
+// })
+// User.belongsTo(Role,{
+//     foreignKey:"Id_role"
+// })
+//=====================================
+exports.Role.hasMany(exports.User_roles, {
+    foreignKey: "role_id"
 });
-exports.User.belongsTo(exports.Role, {
-    foreignKey: "Id_role"
+exports.User_roles.belongsTo(exports.Role, {
+    foreignKey: "role_id"
+});
+exports.User.hasMany(exports.User_roles, {
+    foreignKey: "user_id"
+});
+exports.User_roles.belongsTo(exports.User, {
+    foreignKey: "user_id"
 });
 /** [user] ==> post */
 exports.User.hasMany(exports.Post, {

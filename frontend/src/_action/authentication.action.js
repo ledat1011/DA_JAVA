@@ -84,13 +84,12 @@ const getUser = () => {
         if (token) {
             try {
                 var res = (await authentication(token)).data
-              
+                console.log(res);
                 if(res.status){
                     const wish_list = res.wish_list.map(c=>c.IdPost) || [];
                     dispatch({type:savepostTypes.GET_SAVE_POST,data:wish_list})
-                    dispatch(success(res.user.data ))
-                    socket.emit('userconnecton', res.user.data.id)
-
+                    dispatch(success(res.user ))
+                    socket.emit('userconnecton', res.user.id)
                 }else{
                     localStorage.removeItem('user');
                 }

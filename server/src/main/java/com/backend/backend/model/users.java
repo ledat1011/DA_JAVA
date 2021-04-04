@@ -19,148 +19,212 @@ import javax.persistence.ManyToOne;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "users")
+@JsonAutoDetect(fieldVisibility=JsonAutoDetect.Visibility.ANY, getterVisibility=JsonAutoDetect.Visibility.NONE,
+setterVisibility=JsonAutoDetect.Visibility.NONE, creatorVisibility=JsonAutoDetect.Visibility.NONE)
 public class users {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO )
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, columnDefinition = "Id")
 	private int id;
-	
-	@Column(name = "first_name")
-	private String first_name;
-	
-	@Column(name = "last_name")
-	private String last_name;
-	
-	@Column(name = "phonenumber")
-	private BigInteger phonenumber;
-	
-	@Column(name ="email")
+
+	@JsonProperty("First_name")
+	@Column(name = "First_name")
+	private String First_name;
+
+	@Column(name = "Last_name")
+	@JsonProperty("Last_name")
+	private String Last_name;
+
+	@Column(name = "PhoneNumber")
+	@JsonProperty("PhoneNumber")
+	private BigInteger PhoneNumber;
+	@JsonProperty("Email")
+	@Column(name = "Email")
 	private String email;
-	
-	@Column(name = "password")
-	private String password;
-	
-	@Column(name= "money")
-	private Double money;
-	
-	@Column(name ="block")
+
+	@JsonProperty("PassWord")
+	@Column(name = "PassWord")
+	private String PassWord;
+
+	@Column(name = "Money")
+	@JsonProperty("Money")
+	private Double Money;
+
+	@Column(name = "block")
 	private boolean block;
-	
-	@Column(name =  "created_at")
+
+	@Column(name = "Created_at")
+	@JsonProperty("Created_at")
 	private Date created_at;
-	@Column(name ="confirmEmail", columnDefinition="Boolean precision  default 'false'")
-	private Boolean confirmEmail;
-	public Boolean getConfirmEmail() {
-		return confirmEmail;
-	}
-	public void setConfirmEmail(Boolean confirmEmail) {
-		this.confirmEmail = confirmEmail;
-	}
+
+	@Column(name = "Update_at")
+	@JsonProperty("Update_at")
+	private Date Update_at;
+	@JsonProperty("ConfirmEmaiil")
+	@Column(name = "ConfirmEmaiil")
+	private Boolean ConfirmEmaiil;
+
 	@ManyToOne()
-	@JoinColumn(name = "id_LoaiDangNhap", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "Id_LoaiDangNhap", nullable = false, insertable = false, updatable = false)
 	private loaidangnhap loaidangnhap;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<roles> roles = new HashSet<>();
+	@Column(name = "Id_LoaiDangNhap")
+	private int Id_LoaiDangNhap;
+
 	
 	
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<roles> roles = new HashSet<>();
-    @Column(name =  "id_LoaiDangNhap")
-	private int id_LoaiDangNhap;
 	
-	public int getId_LoaiDangNhap() {
-		return id_LoaiDangNhap;
-	}
-	public void setId_LoaiDangNhap(int id_LoaiDangNhap) {
-		this.id_LoaiDangNhap = id_LoaiDangNhap;
-	}
-	public users() {};
-	public users(String first_name, String last_name, BigInteger phonenumber, String email, String password,
-			Double money, boolean block, int id_LoaiDangNhap ,Date created_at) {
-		super();
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.phonenumber = phonenumber;
-		this.email = email;
-		this.password = password;
-		this.money = money;
-		this.block = block;
-		this.id_LoaiDangNhap = id_LoaiDangNhap;
-		this.created_at = created_at;
-		this.confirmEmail = false;
+	
+	 public users() {
 		
 	}
-	public Set<roles> getRoles() {
-		return roles;
+	 public users(users user) {
+		 First_name = user.First_name;
+			Last_name = user.Last_name;
+			PhoneNumber = user.PhoneNumber;
+			this.email = user.email;
+			PassWord = user.PassWord;
+			Money = user.Money;
+			this.block = user.block;
+			this.created_at = user.created_at;
+			Update_at = user.Update_at;
+			ConfirmEmaiil = user.ConfirmEmaiil;
+			Id_LoaiDangNhap = user.Id_LoaiDangNhap;
 	}
-	public void setRoles(Set<roles> roles) {
-		this.roles = roles;
+	public users(String first_name, String last_name, BigInteger phoneNumber, String email, String passWord,
+			Double money, boolean block, Date created_at, Date update_at, Boolean confirmEmaiil, int id_LoaiDangNhap) {
+		super();
+		First_name = first_name;
+		Last_name = last_name;
+		PhoneNumber = phoneNumber;
+		this.email = email;
+		PassWord = passWord;
+		Money = money;
+		this.block = block;
+		this.created_at = created_at;
+		Update_at = update_at;
+		ConfirmEmaiil = confirmEmaiil;
+		Id_LoaiDangNhap = id_LoaiDangNhap;
 	}
-	public int getid() {
+
+	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getFirst_name() {
-		return first_name;
+		return First_name;
 	}
+
 	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+		First_name = first_name;
 	}
+
 	public String getLast_name() {
-		return last_name;
+		return Last_name;
 	}
+
 	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+		Last_name = last_name;
 	}
-	public BigInteger getPhonenumber() {
-		return phonenumber;
+
+	public BigInteger getPhoneNumber() {
+		return PhoneNumber;
 	}
-	public void setPhonenumber(BigInteger phonenumber) {
-		this.phonenumber = phonenumber;
+
+	public void setPhoneNumber(BigInteger phoneNumber) {
+		PhoneNumber = phoneNumber;
 	}
+
 	public String getEmail() {
 		return email;
 	}
-	public void setEmaill(String emaill) {
-		this.email = emaill;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getPassWord() {
+		return PassWord;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setPassWord(String passWord) {
+		PassWord = passWord;
 	}
+
 	public Double getMoney() {
-		return money;
+		return Money;
 	}
+
 	public void setMoney(Double money) {
-		this.money = money;
+		Money = money;
 	}
+
 	public boolean isBlock() {
 		return block;
 	}
+
 	public void setBlock(boolean block) {
 		this.block = block;
 	}
+
 	public Date getCreated_at() {
 		return created_at;
 	}
+
 	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
 	}
+
+	public Date getUpdate_at() {
+		return Update_at;
+	}
+
+	public void setUpdate_at(Date update_at) {
+		Update_at = update_at;
+	}
+
+	public Boolean getConfirmEmaiil() {
+		return ConfirmEmaiil;
+	}
+
+	public void setConfirmEmaiil(Boolean confirmEmaiil) {
+		ConfirmEmaiil = confirmEmaiil;
+	}
+
 	public loaidangnhap getLoaidangnhap() {
 		return loaidangnhap;
 	}
-//	public void setLoaidangnhap(loaidangnhap loaidangnhap) {
-//		this.loaidangnhap = loaidangnhap;
+
+	public void setLoaidangnhap(loaidangnhap loaidangnhap) {
+		this.loaidangnhap = loaidangnhap;
+	}
+
+	public Set<roles> getRoles() {
+		return roles;
+	}
+
+//	public void setRoles(Set<roles> roles) {
+//		this.roles = roles;
 //	}
+	public int getId_LoaiDangNhap() {
+		return Id_LoaiDangNhap;
+	}
+
+	public void setId_LoaiDangNhap(int id_LoaiDangNhap) {
+		Id_LoaiDangNhap = id_LoaiDangNhap;
+	}
 
 }
