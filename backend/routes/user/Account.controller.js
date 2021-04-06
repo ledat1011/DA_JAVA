@@ -272,6 +272,15 @@ router.put('/update', (req, res) => {
 
     }).catch(e => { res.send({ status: false, error: e }) })
 })
+router.delete('/delete', (req, res) => {
+    var obj = { ...req.body };
+    delete obj.id;
+    console.log(req.body.id);
+    db.User.destroy({where:{id:req.body.id}}).then(data => {
+        //get infor user after update
+        res.send({ status: true, data: data })
+    }).catch(e => { res.send({ status: false, error: e }) })
+})
 
 
 
