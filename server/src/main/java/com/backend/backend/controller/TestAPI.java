@@ -12,9 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.backend.model.posts;
 import com.backend.backend.model.savepost;
+import com.backend.backend.model.typepost;
 import com.backend.backend.model.users;
+import com.backend.backend.repository.DistrictRepository;
 import com.backend.backend.repository.PostRepository;
+import com.backend.backend.repository.ProvinceRepository;
 import com.backend.backend.repository.SavePostRepository;
+import com.backend.backend.repository.StreetRepository;
+import com.backend.backend.repository.TypePostRepository;
+import com.backend.backend.repository.WardRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -23,11 +29,21 @@ public class TestAPI {
 	private SavePostRepository savepostRepo;
 	@Autowired
 	private PostRepository postRepo;
+	@Autowired
+	private TypePostRepository typeosRepo;
+	@Autowired
+	private ProvinceRepository provinceRepo;
+	@Autowired
+	private DistrictRepository districtRepo;
+	@Autowired
+	private WardRepository wardRepo;
+	@Autowired
+	private StreetRepository streetRepo;
 	@GetMapping("/test")
 	public ResponseEntity<?>  getAll() {
 		try {
 			
-			return  ResponseEntity.ok(postRepo.findAll());
+			return  ResponseEntity.ok(streetRepo.findAll());
 		} catch (Exception e) {
 			
 			return ResponseEntity.ok(e);

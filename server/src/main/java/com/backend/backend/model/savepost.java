@@ -17,7 +17,7 @@ setterVisibility=JsonAutoDetect.Visibility.NONE, creatorVisibility=JsonAutoDetec
 public class savepost {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false, columnDefinition = "Id")
+	@Column(name = "id", nullable = false)
 	private int id;
 	
 	@Column(name = "IdUser")
