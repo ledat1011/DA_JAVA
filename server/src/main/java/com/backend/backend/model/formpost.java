@@ -12,23 +12,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="typepost")
-public class typepost {
-
+@Table(name = "formpost")
+public class formpost {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false)
-	private int id;
+	@Column(name = "id", nullable = false, columnDefinition = "id")
+	private Integer id;
 	
-	@Column(name ="name")
+	@Column(name = "name")
 	private String name;
-    @OneToMany(mappedBy = "typepost",fetch = FetchType.LAZY)
+	
+    @OneToMany(mappedBy = "formpost",fetch = FetchType.LAZY)
     private List<posts> posts ;
-	public int getId() {
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

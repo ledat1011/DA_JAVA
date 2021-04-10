@@ -14,7 +14,9 @@ import com.backend.backend.model.posts;
 import com.backend.backend.model.savepost;
 import com.backend.backend.model.typepost;
 import com.backend.backend.model.users;
+import com.backend.backend.repository.BinhLuanRepository;
 import com.backend.backend.repository.DistrictRepository;
+import com.backend.backend.repository.FormPostRepository;
 import com.backend.backend.repository.PostRepository;
 import com.backend.backend.repository.ProvinceRepository;
 import com.backend.backend.repository.SavePostRepository;
@@ -39,11 +41,16 @@ public class TestAPI {
 	private WardRepository wardRepo;
 	@Autowired
 	private StreetRepository streetRepo;
+	@Autowired
+	private BinhLuanRepository binhluanRepo;
+	
+	@Autowired
+	private FormPostRepository formpostRepo;
 	@GetMapping("/test")
 	public ResponseEntity<?>  getAll() {
 		try {
 			
-			return  ResponseEntity.ok(streetRepo.findAll());
+			return  ResponseEntity.ok(postRepo.findAll());
 		} catch (Exception e) {
 			
 			return ResponseEntity.ok(e);

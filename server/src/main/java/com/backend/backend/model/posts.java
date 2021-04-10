@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -123,8 +125,27 @@ public class posts {
 	
     @OneToMany(mappedBy = "posts",fetch = FetchType.LAZY)
     private List<image> images;
-	
     
+    @ManyToOne()
+	@JoinColumn(name = "idFormPost", nullable = false, insertable = false, updatable = false)
+	private formpost formpost;
+    
+    @ManyToOne()
+	@JoinColumn(name = "idTypePost", nullable = false, insertable = false, updatable = false)
+	private typepost typepost;
+    
+	public typepost getTypepost() {
+		return typepost;
+	}
+
+	public formpost getFormpost() {
+		return formpost;
+	}
+
+	public void setFormpost(formpost formpost) {
+		this.formpost = formpost;
+	}
+
 	public List<image> getImages() {
 		return images;
 	}
