@@ -73,6 +73,31 @@ INSERT INTO `binhluan` VALUES (185,1,6,'test','2020-12-18','2020-12-18'),(186,1,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `category` (
+  `cateID` int NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(150) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  PRIMARY KEY (`cateID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `category`
+--
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Máy tính bảng','Máy tính bảng'),(2,'Điện thoại','Điện thoại');
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `chitietthongbao`
 --
 
@@ -292,7 +317,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (3);
+INSERT INTO `hibernate_sequence` VALUES (13);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -479,8 +504,39 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (5,1,2,39,NULL,603,'',12000000,1,12,5,12000000,0,' Phường Long BiênQuận Long Biên Hà Nội ',12000000,12000000,'conditions','conditions','allowed','<p>no</p>','<p>introduction</p>','123',1,1,1,2,2,'1607749492967-iphone-11-pro-max-black-400x460.png',1,1,'2020-12-12 05:04:53.000000','2021-03-14 15:13:09.000000',21.02682503919435,105.89455010178247),(6,1,1,3,NULL,37,'',15000000,1,50,82,15000000,0,' Phường 22Quận Bình Thạnh Hồ Chí Minh ',15000000,18000000,'conditions','conditions','conditions','<p>no</p>','<p>- Homestay chúng mình nằm ngay điểm giao giữa Q1 và Q4, <strong>sát bên cầu Khánh Hội và Calmette</strong></p><p>- Nhà có đầy đủ các tiện nghi như TV có kết nối Internet và <strong>Netflix</strong>, bếp trang bị đủ đồ để bạn có thể nấu nướng cơ bản, bãi đỗ xe máy ngay bên tầng trệt.</p><p>- View phòng nhìn thẳng ra<strong> Landmark 81</strong>, ban đêm lên đèn rất chill nhé</p><p>- Ở nhà bọn mình, mọi người chỉ mất 5-10 phút để đi bộ ra <strong>Bitexco, phố đi bộ Nguyễn Huệ, bảo tàng Hồ Chí Minh, bảo tàng Mỹ Thuật thành phố</strong></p><p>- Đặc biệt đi từ cầu Khánh Hội mọi người còn có thể ngắm hoàng hôn trên Bến Nhà Rồng, hoặc ghé Bến Bạch Đằng để du ngoạn sông Sài Gòn bằng bus trên sông</p><p>- Xung quanh khu vực nhà tụi mình có nhiều điểm ăn uống nổi tiếng, có thể đi bộ tới được luôn như: <strong>Bún Đậu Homemade, khu ẩm thực Vĩnh Khánh, xa một xíu có khu ẩm thực Chợ 200 Xóm Chiếu.</strong></p><p>Ngoài ra còn nhiều tiện ích khác:</p><p><strong>- Circle K nằm cách nhà chỉ 70m</strong></p><p>- Trước nhà có cô bán bún bò, bún riêu rất ngon ( bán từ 4h30 chiều thực đơn đổi theo ngày )</p><p>- Sát Circle K có tiệm phở Bắc bán từ sáng tới trưa, bạn có thể thử, chúng mình thử rồi cũng okela lắm</p><p>- Ngoài ra còn có Co.op Food, nhiều tiệm cà phê ven phố</p><p>Nếu đi với nhóm đông người, bạn có thể book cùng với Stay&amp;Fun No.2 ( Hai căn nằm trong cùng một toà nhà )</p>','Stay&Fun No.3 - Chiếc phòng xinh thẩn thơ giữa lòng đô thị',2,1,10,5,1,'1607768952086-ub9gJsP701PjeTWoejjBU-Ta.jpg',1,1,'2020-12-12 10:29:12.000000','2021-01-21 12:55:38.000000',10.796700017897734,106.70325996666367),(7,15,1,3,NULL,28,'',15000000,NULL,50,12,15000000,1,' Phường 11Quận Bình Thạnh Hồ Chí Minh ',1500000,1500000,'allowed','allowed','conditions','<p>no</p>','<p>Một studio gác xép xinh đẹp và ấm cúng với mọi thứ bạn cần, nằm ở vị trí trung tâm, nhưng ẩn trong một con hẻm cách xa những con đường ồn ào của Sài Gòn.</p><p><strong>Cozrum Homes</strong> - Gác xép duyên dáng có ban công nằm cách sở thú Sài Gòn 1 km và Nhà thờ Đức Bà, Dinh Thống Nhất và Chợ Bưu điện Trung tâm 1,1 km. Tất cả các đơn vị bao gồm một khu vực chỗ ngồi, một khu vực ăn uống, và một nhà bếp được trang bị đầy đủ với các thiết bị nấu ăn khác nhau, bao gồm lò vi sóng, tủ lạnh và bếp.</p><p>Nội thất đầy đủ với khu vực sinh hoạt, ăn uống, nhà bếp, phòng tắm và phòng ngủ riêng biệt. Có 6 phòng ngủ trong nhà. Tất cả các phòng ngủ đều có phòng tắm riêng. Không gian phòng bị hạn chế, vì vậy nếu bạn có nhiều hành lý quá khổ hoặc quá khổ, bạn sẽ thấy khó khăn khi lắp chúng bên trong phòng.</p><p>- Giường thoải mái trong phòng yên tĩnh và có máy lạnh.</p><p>- Phòng tắm riêng sạch sẽ và sáng bóng với nước nóng để tắm đẹp sau một ngày dài tham quan hoặc kinh doanh.</p><p>- Phòng có cửa sổ lớn cung cấp ánh sáng tự nhiên và không khí trong lành.</p><p>- Internet TV và kết nối wifi tốc độ cao.</p><p>- Giặt ủi và nước uống được cung cấp miễn phí.</p><p>- Nhà bếp đầy đủ tiện nghi theo ý của bạn.</p><p>- Các tiện nghi khác chúng tôi cung cấp: kem đánh răng, dầu gội, gel rửa tay, khăn sạch.</p>','Cozrum Homes - 1BR ♧ Fully Furnished @Downtown @D1 201',1,1,2,10,10,'1610611767765-room_27524_3_1562903731.jpg',1,1,'2021-01-14 08:09:27.000000','2021-01-24 15:49:26.000000',10.794390007292108,106.70883996724564),(8,15,2,27,NULL,373,'',2000000,NULL,50,1,2000000,0,' Phường Cổ Nhuế 2Quận Bắc Từ Liêm Hà Nội ',2000000,2000000,'allowed','allowed','allowed','<p>no</p>','<p><strong>Innalley no.2 </strong>được thiết kế theo phong cách hiện đại và nội thất được làm từ gỗ thông tự nhiên. Mỗi góc tại chỗ ở của chúng tôi bạn đều có thể tạo thành những khung hình xinh xắn, ghi lại khoảnh khắc kỉ niệm bên người thân và bạn bè. Tất cả những thứ bạn cần cho kỳ nghỉ đều có tại Innalley no.2:</p><p>- 01 giường King (1m8 x 2m) ở tầng trệt và 02 giường đôi (1m6 x 2m) trên lầu với nệm thoải mái, có thể chứa tối đa 6 người lớn.</p><p>- Wifi miễn phí tốc độ cao 24/7</p><p>- TV thông minh LED 42 inch có thể truy cập Youtube</p><p>- 02 máy điều hòa trong nhà</p><p>- Bếp nhỏ được trang bị đầy đủ bàn ăn, dụng cụ nhà bếp (tủ lạnh, máy nướng bánh mì, máy pha cà phê, bếp, v.v.) và các loại gia vị để cho phép nấu ăn tại Innalley No.2</p><p>- Tủ âm tường có sẵn</p><p>- Ô dù được chuẩn bị trong trường hợp bạn có thể muốn ra ngoài khi trời mưa</p><p>- Có sẵn ấm đun nước, sau đó bạn có thể có nước sôi để đổ đầy</p><p>- Phòng tắm và nhà vệ sinh tách biệt. Khăn sạch, dầu gội, sữa tắm và đồ dùng vệ sinh được cung cấp</p><p>- Máy giặt và bàn ủi để tự giặt.</p><p>- Máy sấy tóc / Gương toàn thân</p><p>Chúng tôi tôn trọng sự riêng tư của bạn và cho phép bạn hoàn toàn cảm thấy như ở nhà. Nhưng đừng ngần ngại nhờ chúng tôi giúp đỡ hoặc gợi ý. Chúng tôi hạnh phúc hơn khi đưa bạn đến nhà hàng yêu thích của chúng tôi gần chợ Bến Thành hoặc chỉ để uống bia lạnh.</p>','Cozrum Homes - 1BR ♧ Fully Furnished @Downtown @D1 201',1,1,1,1,1,'1610613481592-DEvOIiIk7ZxIZa9DzvJdGENe.jpg',1,1,'2021-01-14 08:38:01.000000','2021-01-21 13:24:27.000000',21.058850000000064,105.77966000000004),(10,15,1,3,NULL,28,'',1000000,NULL,60,19,1000000,0,' Phường 11Quận Bình Thạnh Hồ Chí Minh ',2000000,2000000,'allowed','allowed','conditions','<p>no</p>','<p>Căn hộ dịch vụ cao cấp Saigon Garden Hill có sân vườn rộng rãi, hồ bơi, phòng gym hoàn toàn miễn phí, sang trọng.</p><p>Căn hộ nằm ngay ngã tư Trần Bình Trọng và Nguyễn Thượng Hiền - Tiếp giáp quận Phú Nhuận, Tân Bình, cách sân bay Tân Sơn Nhất 10p đi xe.</p><p>Căn hộ đầy đủ tiện nghi bao gồm tất cả các nội thất: Tivi, tủ lạnh, sofa, bàn ăn, bếp đã có đủ đồ nấu ăn, máy lạnh, giường nệm,...</p>','2Bedroom - SAIGON GARDEN HILL Resort & Apartment',3,1,5,2,2,'1610654054984-ctw0NjterCd6KqVybj5kLY41.jpg',1,1,'2021-01-14 18:16:50.000000','2021-01-21 15:37:14.000000',10.817310000000077,106.69397000000004),(11,15,1,2,635,17,'',10000000,NULL,12,16,10000000,0,' Phường An LạcQuận Bình Tân Hồ Chí Minh ',10000000,10000000,'allowed','allowed','allowed','<p>n</p>','<p>Căn hộ hai phòng ngủ này được hoàn tất vào tháng 2 2020. Diện tích 85m2 với phòng ngủ thoải mái, phòng tắm hiện đại, phòng khách &amp; nhà bếp đầy đủ tiện nghi.</p><p>Các vật dụng trong phòng bao gồm:</p><p>- 2 giường đôi với ga trải giường, chăn, 4 gối / 1 giường, tủ quần áo rộng rãi và nệm sơ cua có sẵn. (Chúng tôi có thể kết hợp chúng thành 1 giường to nếu bạn yêu cầu trước)</p><p>- BẾP được trang bị đầy đủ với Tủ lạnh, Lò vi sóng, Bếp điện từ, Nồi cơm điện, Ấm đun nước, Nồi &amp; Chảo, Bát đĩa &amp; Đồ dùng bằng bạc. - Giải trí với TV 55 inch và hộp thông minh được cài đặt với các kênh truyền hình cáp, phim miễn phí, YouTube và Netflix.</p><p>- PHÒNG TẮM đầy đủ với vòi sen tắm đứng, nước nóng không giới hạn, bồn rửa mặt, dầu gội, sữa tắm, nước rửa tay, giấy vệ sinh, 4 khăn, kem đánh răng, bàn chải đánh răng sử dụng một lần, lược chải tóc và máy sấy tóc.</p><p>- Khu giặt sấy với máy giặt, bột giặt, móc treo.</p><p>- Toàn bộ căn hộ cũng được trang bị máy lạnh, Internet tốc độc cao và cửa thông minh truy cập bằng mã khóa.</p><p>Các tiện nghi bao gồm:</p><p>- Bảo vệ tòa nhà 24/7.</p><p>- Thang máy.</p><p>- Lễ tân.</p><p>- Camera anh ninh trong khu vực chung.</p><p>- Phòng chờ tại sảnh với máy lạnh và Wifi để bạn chờ đến giờ nhận phòng.</p><p>- Cửa hàng tiện lợi &amp; cafe &amp; atm.</p><p>- Hầm để xe an toàn.</p><p>- Khách có thể sử dụng hồ bơi</p><p>- Khách có thể sử dụng phòng gym</p><p>- Khách có thể nhờ sự trợ giúp từ nhân viên tiếp tân / an ninh (taxi, v.v.)</p><p>- Khách có thể sử dụng phòng chờ để đợi đến giờ nhận phòng.</p><p>- Khách có thể mua thức ăn về nhà để nấu và ăn.</p><p>- Khách chỉ có thể hút thuốc trên ban công.</p><p>- Khách có thể sử dụng bãi đậu xe trả tiền tại chỗ (Chỉ phù hợp cho xe dưới 7 chỗ).</p>','Stay&Fun No.3 - Chiếc phòng xinh thẩn thơ giữa lòng đô thị',1,1,12,12,12,'1610907238516-jnbJjTDo-lBNvevgCqqmZQtJ.jpg',1,1,'2021-01-17 18:14:00.000000','2021-01-21 12:55:00.000000',10.7234153,106.6157615);
+INSERT INTO `posts` VALUES (5,1,2,39,NULL,603,'',12000000,1,12,6,12000000,0,' Phường Long BiênQuận Long Biên Hà Nội ',12000000,12000000,'conditions','conditions','allowed','<p>no</p>','<p>introduction</p>','123',1,1,1,2,2,'1607749492967-iphone-11-pro-max-black-400x460.png',1,1,'2020-12-12 05:04:53.000000','2021-03-14 15:13:09.000000',21.02682503919435,105.89455010178247),(6,1,1,3,NULL,37,'',15000000,1,50,94,15000000,0,' Phường 22Quận Bình Thạnh Hồ Chí Minh ',15000000,18000000,'conditions','conditions','conditions','<p>no</p>','<p>- Homestay chúng mình nằm ngay điểm giao giữa Q1 và Q4, <strong>sát bên cầu Khánh Hội và Calmette</strong></p><p>- Nhà có đầy đủ các tiện nghi như TV có kết nối Internet và <strong>Netflix</strong>, bếp trang bị đủ đồ để bạn có thể nấu nướng cơ bản, bãi đỗ xe máy ngay bên tầng trệt.</p><p>- View phòng nhìn thẳng ra<strong> Landmark 81</strong>, ban đêm lên đèn rất chill nhé</p><p>- Ở nhà bọn mình, mọi người chỉ mất 5-10 phút để đi bộ ra <strong>Bitexco, phố đi bộ Nguyễn Huệ, bảo tàng Hồ Chí Minh, bảo tàng Mỹ Thuật thành phố</strong></p><p>- Đặc biệt đi từ cầu Khánh Hội mọi người còn có thể ngắm hoàng hôn trên Bến Nhà Rồng, hoặc ghé Bến Bạch Đằng để du ngoạn sông Sài Gòn bằng bus trên sông</p><p>- Xung quanh khu vực nhà tụi mình có nhiều điểm ăn uống nổi tiếng, có thể đi bộ tới được luôn như: <strong>Bún Đậu Homemade, khu ẩm thực Vĩnh Khánh, xa một xíu có khu ẩm thực Chợ 200 Xóm Chiếu.</strong></p><p>Ngoài ra còn nhiều tiện ích khác:</p><p><strong>- Circle K nằm cách nhà chỉ 70m</strong></p><p>- Trước nhà có cô bán bún bò, bún riêu rất ngon ( bán từ 4h30 chiều thực đơn đổi theo ngày )</p><p>- Sát Circle K có tiệm phở Bắc bán từ sáng tới trưa, bạn có thể thử, chúng mình thử rồi cũng okela lắm</p><p>- Ngoài ra còn có Co.op Food, nhiều tiệm cà phê ven phố</p><p>Nếu đi với nhóm đông người, bạn có thể book cùng với Stay&amp;Fun No.2 ( Hai căn nằm trong cùng một toà nhà )</p>','Stay&Fun No.3 - Chiếc phòng xinh thẩn thơ giữa lòng đô thị',2,1,10,5,1,'1607768952086-ub9gJsP701PjeTWoejjBU-Ta.jpg',1,1,'2020-12-12 10:29:12.000000','2021-01-21 12:55:38.000000',10.796700017897734,106.70325996666367),(7,15,1,3,NULL,28,'',15000000,NULL,50,17,15000000,1,' Phường 11Quận Bình Thạnh Hồ Chí Minh ',1500000,1500000,'allowed','allowed','conditions','<p>no</p>','<p>Một studio gác xép xinh đẹp và ấm cúng với mọi thứ bạn cần, nằm ở vị trí trung tâm, nhưng ẩn trong một con hẻm cách xa những con đường ồn ào của Sài Gòn.</p><p><strong>Cozrum Homes</strong> - Gác xép duyên dáng có ban công nằm cách sở thú Sài Gòn 1 km và Nhà thờ Đức Bà, Dinh Thống Nhất và Chợ Bưu điện Trung tâm 1,1 km. Tất cả các đơn vị bao gồm một khu vực chỗ ngồi, một khu vực ăn uống, và một nhà bếp được trang bị đầy đủ với các thiết bị nấu ăn khác nhau, bao gồm lò vi sóng, tủ lạnh và bếp.</p><p>Nội thất đầy đủ với khu vực sinh hoạt, ăn uống, nhà bếp, phòng tắm và phòng ngủ riêng biệt. Có 6 phòng ngủ trong nhà. Tất cả các phòng ngủ đều có phòng tắm riêng. Không gian phòng bị hạn chế, vì vậy nếu bạn có nhiều hành lý quá khổ hoặc quá khổ, bạn sẽ thấy khó khăn khi lắp chúng bên trong phòng.</p><p>- Giường thoải mái trong phòng yên tĩnh và có máy lạnh.</p><p>- Phòng tắm riêng sạch sẽ và sáng bóng với nước nóng để tắm đẹp sau một ngày dài tham quan hoặc kinh doanh.</p><p>- Phòng có cửa sổ lớn cung cấp ánh sáng tự nhiên và không khí trong lành.</p><p>- Internet TV và kết nối wifi tốc độ cao.</p><p>- Giặt ủi và nước uống được cung cấp miễn phí.</p><p>- Nhà bếp đầy đủ tiện nghi theo ý của bạn.</p><p>- Các tiện nghi khác chúng tôi cung cấp: kem đánh răng, dầu gội, gel rửa tay, khăn sạch.</p>','Cozrum Homes - 1BR ♧ Fully Furnished @Downtown @D1 201',1,1,2,10,10,'1610611767765-room_27524_3_1562903731.jpg',1,1,'2021-01-14 08:09:27.000000','2021-01-24 15:49:26.000000',10.794390007292108,106.70883996724564),(8,15,2,27,NULL,373,'',2000000,NULL,50,3,2000000,0,' Phường Cổ Nhuế 2Quận Bắc Từ Liêm Hà Nội ',2000000,2000000,'allowed','allowed','allowed','<p>no</p>','<p><strong>Innalley no.2 </strong>được thiết kế theo phong cách hiện đại và nội thất được làm từ gỗ thông tự nhiên. Mỗi góc tại chỗ ở của chúng tôi bạn đều có thể tạo thành những khung hình xinh xắn, ghi lại khoảnh khắc kỉ niệm bên người thân và bạn bè. Tất cả những thứ bạn cần cho kỳ nghỉ đều có tại Innalley no.2:</p><p>- 01 giường King (1m8 x 2m) ở tầng trệt và 02 giường đôi (1m6 x 2m) trên lầu với nệm thoải mái, có thể chứa tối đa 6 người lớn.</p><p>- Wifi miễn phí tốc độ cao 24/7</p><p>- TV thông minh LED 42 inch có thể truy cập Youtube</p><p>- 02 máy điều hòa trong nhà</p><p>- Bếp nhỏ được trang bị đầy đủ bàn ăn, dụng cụ nhà bếp (tủ lạnh, máy nướng bánh mì, máy pha cà phê, bếp, v.v.) và các loại gia vị để cho phép nấu ăn tại Innalley No.2</p><p>- Tủ âm tường có sẵn</p><p>- Ô dù được chuẩn bị trong trường hợp bạn có thể muốn ra ngoài khi trời mưa</p><p>- Có sẵn ấm đun nước, sau đó bạn có thể có nước sôi để đổ đầy</p><p>- Phòng tắm và nhà vệ sinh tách biệt. Khăn sạch, dầu gội, sữa tắm và đồ dùng vệ sinh được cung cấp</p><p>- Máy giặt và bàn ủi để tự giặt.</p><p>- Máy sấy tóc / Gương toàn thân</p><p>Chúng tôi tôn trọng sự riêng tư của bạn và cho phép bạn hoàn toàn cảm thấy như ở nhà. Nhưng đừng ngần ngại nhờ chúng tôi giúp đỡ hoặc gợi ý. Chúng tôi hạnh phúc hơn khi đưa bạn đến nhà hàng yêu thích của chúng tôi gần chợ Bến Thành hoặc chỉ để uống bia lạnh.</p>','Cozrum Homes - 1BR ♧ Fully Furnished @Downtown @D1 201',1,1,1,1,1,'1610613481592-DEvOIiIk7ZxIZa9DzvJdGENe.jpg',1,1,'2021-01-14 08:38:01.000000','2021-01-21 13:24:27.000000',21.058850000000064,105.77966000000004),(10,15,1,3,NULL,28,'',1000000,NULL,60,29,1000000,0,' Phường 11Quận Bình Thạnh Hồ Chí Minh ',2000000,2000000,'allowed','allowed','conditions','<p>no</p>','<p>Căn hộ dịch vụ cao cấp Saigon Garden Hill có sân vườn rộng rãi, hồ bơi, phòng gym hoàn toàn miễn phí, sang trọng.</p><p>Căn hộ nằm ngay ngã tư Trần Bình Trọng và Nguyễn Thượng Hiền - Tiếp giáp quận Phú Nhuận, Tân Bình, cách sân bay Tân Sơn Nhất 10p đi xe.</p><p>Căn hộ đầy đủ tiện nghi bao gồm tất cả các nội thất: Tivi, tủ lạnh, sofa, bàn ăn, bếp đã có đủ đồ nấu ăn, máy lạnh, giường nệm,...</p>','2Bedroom - SAIGON GARDEN HILL Resort & Apartment',3,1,5,2,2,'1610654054984-ctw0NjterCd6KqVybj5kLY41.jpg',1,1,'2021-01-14 18:16:50.000000','2021-01-21 15:37:14.000000',10.817310000000077,106.69397000000004),(11,15,1,2,635,17,'',10000000,NULL,12,20,10000000,0,' Phường An LạcQuận Bình Tân Hồ Chí Minh ',10000000,10000000,'allowed','allowed','allowed','<p>n</p>','<p>Căn hộ hai phòng ngủ này được hoàn tất vào tháng 2 2020. Diện tích 85m2 với phòng ngủ thoải mái, phòng tắm hiện đại, phòng khách &amp; nhà bếp đầy đủ tiện nghi.</p><p>Các vật dụng trong phòng bao gồm:</p><p>- 2 giường đôi với ga trải giường, chăn, 4 gối / 1 giường, tủ quần áo rộng rãi và nệm sơ cua có sẵn. (Chúng tôi có thể kết hợp chúng thành 1 giường to nếu bạn yêu cầu trước)</p><p>- BẾP được trang bị đầy đủ với Tủ lạnh, Lò vi sóng, Bếp điện từ, Nồi cơm điện, Ấm đun nước, Nồi &amp; Chảo, Bát đĩa &amp; Đồ dùng bằng bạc. - Giải trí với TV 55 inch và hộp thông minh được cài đặt với các kênh truyền hình cáp, phim miễn phí, YouTube và Netflix.</p><p>- PHÒNG TẮM đầy đủ với vòi sen tắm đứng, nước nóng không giới hạn, bồn rửa mặt, dầu gội, sữa tắm, nước rửa tay, giấy vệ sinh, 4 khăn, kem đánh răng, bàn chải đánh răng sử dụng một lần, lược chải tóc và máy sấy tóc.</p><p>- Khu giặt sấy với máy giặt, bột giặt, móc treo.</p><p>- Toàn bộ căn hộ cũng được trang bị máy lạnh, Internet tốc độc cao và cửa thông minh truy cập bằng mã khóa.</p><p>Các tiện nghi bao gồm:</p><p>- Bảo vệ tòa nhà 24/7.</p><p>- Thang máy.</p><p>- Lễ tân.</p><p>- Camera anh ninh trong khu vực chung.</p><p>- Phòng chờ tại sảnh với máy lạnh và Wifi để bạn chờ đến giờ nhận phòng.</p><p>- Cửa hàng tiện lợi &amp; cafe &amp; atm.</p><p>- Hầm để xe an toàn.</p><p>- Khách có thể sử dụng hồ bơi</p><p>- Khách có thể sử dụng phòng gym</p><p>- Khách có thể nhờ sự trợ giúp từ nhân viên tiếp tân / an ninh (taxi, v.v.)</p><p>- Khách có thể sử dụng phòng chờ để đợi đến giờ nhận phòng.</p><p>- Khách có thể mua thức ăn về nhà để nấu và ăn.</p><p>- Khách chỉ có thể hút thuốc trên ban công.</p><p>- Khách có thể sử dụng bãi đậu xe trả tiền tại chỗ (Chỉ phù hợp cho xe dưới 7 chỗ).</p>','Stay&Fun No.3 - Chiếc phòng xinh thẩn thơ giữa lòng đô thị',1,1,12,12,12,'1610907238516-jnbJjTDo-lBNvevgCqqmZQtJ.jpg',1,1,'2021-01-17 18:14:00.000000','2021-01-21 12:55:00.000000',10.7234153,106.6157615);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `products` (
+  `productID` int NOT NULL AUTO_INCREMENT,
+  `productName` varchar(150) NOT NULL,
+  `cateID` int NOT NULL,
+  `price` double NOT NULL,
+  `quantity` int NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `picture` varchar(500) NOT NULL,
+  PRIMARY KEY (`productID`),
+  KEY `FK_CateID_category` (`cateID`),
+  CONSTRAINT `FK_CateID_category` FOREIGN KEY (`cateID`) REFERENCES `category` (`cateID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Iphoen 12 proMax',2,12000000,3,'new','abc'),(8,'Iphone 12 proMax',1,12000000,3,'new','uploads/1617067465442iphone-12-pro-max-xanh-duong-new-600x600-600x600.jpg');
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -640,7 +696,7 @@ CREATE TABLE `savepost` (
   KEY `fk_savepost_post` (`IdPost`),
   CONSTRAINT `fk_savepost_post` FOREIGN KEY (`IdPost`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_savepost_user` FOREIGN KEY (`IdUser`) REFERENCES `users` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -649,7 +705,7 @@ CREATE TABLE `savepost` (
 
 LOCK TABLES `savepost` WRITE;
 /*!40000 ALTER TABLE `savepost` DISABLE KEYS */;
-INSERT INTO `savepost` VALUES (59,16,6),(64,15,8),(72,1,11),(78,16,10),(79,2,6);
+INSERT INTO `savepost` VALUES (5,15,6),(7,15,10),(59,16,6),(72,1,11),(78,16,10),(79,2,6);
 /*!40000 ALTER TABLE `savepost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -769,7 +825,8 @@ DROP TABLE IF EXISTS `user_roles`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_roles` (
   `user_id` int NOT NULL,
-  `role_id` int DEFAULT NULL,
+  `role_id` int NOT NULL,
+  PRIMARY KEY (`user_id`,`role_id`),
   KEY `FK_UserRole_User_idx` (`user_id`),
   KEY `FK_UserRole_role_idx` (`role_id`),
   CONSTRAINT `FK_UserRole_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
@@ -783,7 +840,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,1),(1,2);
+INSERT INTO `user_roles` VALUES (1,1),(1,2),(1,3);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -819,7 +876,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Le','Dat',1234,'ledat10111999@gmail.com','1234',99999999,0,'2020-11-12 00:00:00.000000','2020-11-12 00:00:00.000000',_binary '',1),(2,'Le ','Dat',1234,'ledat1234','$2a$10$1D2WbdgwuJOFUG9ZKtvfvueLfiqGUEsRI8I.F3Uiv0iYvi3Y.VMoe',100000,0,'2021-04-04 15:03:16.536000','2021-04-04 15:03:16.536000',_binary '\0',1),(15,'Lê','Văn Đạt ',936429878,'ledat10119@gmail.com','$2a$10$1D2WbdgwuJOFUG9ZKtvfvueLfiqGUEsRI8I.F3Uiv0iYvi3Y.VMoe',10000,0,'2020-12-15 15:22:17.000000','2020-12-15 15:22:17.000000',_binary '\0',1),(16,'Lê','Đạt',NULL,'superkutex2@yahoo.com.vn','abc',NULL,0,'2021-01-19 17:42:18.000000','2021-01-19 17:42:18.000000',_binary '',2),(18,'Lê','Le Van Dat',84936429878,'superkutex2@gmail.com','1234',10000,0,'2021-01-24 19:34:28.000000','2021-01-24 19:34:28.000000',_binary '\0',1);
+INSERT INTO `users` VALUES (1,'Le','Dat',1234,'ledat10111999@gmail.com','1234',99999999,0,'2020-11-12 00:00:00.000000','2020-11-12 00:00:00.000000',_binary '',1),(2,'Le ','Dat',1234,'ledat1234','$2a$10$1D2WbdgwuJOFUG9ZKtvfvueLfiqGUEsRI8I.F3Uiv0iYvi3Y.VMoe',100000,0,'2021-04-04 15:03:16.536000','2021-04-04 15:03:16.536000',_binary '\0',1),(12,NULL,'Le Van Dat',84936429878,'ledat10111999@gmai','$2a$10$P.Q5jQjEihP7Md7YrM.bn.dhrhwiyLSbbqQmPHLM8BKBd2jzzEOOC',100000,0,'2021-04-26 17:06:48.039000','2021-04-26 17:06:48.039000',_binary '\0',1),(15,'Lê','Văn Đạt ',936429878,'ledat10119@gmail.com','$2a$10$1D2WbdgwuJOFUG9ZKtvfvueLfiqGUEsRI8I.F3Uiv0iYvi3Y.VMoe',10000,0,'2020-12-15 15:22:17.000000','2020-12-15 15:22:17.000000',_binary '\0',1),(16,'Lê','Đạt',NULL,'superkutex2@yahoo.com.vn','abc',NULL,0,'2021-01-19 17:42:18.000000','2021-01-19 17:42:18.000000',_binary '',2),(18,'Lê','Le Van Dat',84936429878,'superkutex2@gmail.com','1234',10000,0,'2021-01-24 19:34:28.000000','2021-01-24 19:34:28.000000',_binary '\0',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -860,4 +917,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-05  0:06:38
+-- Dump completed on 2021-04-26 21:23:22
