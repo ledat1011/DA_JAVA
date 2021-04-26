@@ -51,6 +51,8 @@ public class SavePostController {
 			
 			Integer result = savePostRepo.delete(req.getIdUser(), req.getIdPost());
 			return ResponseEntity.ok(new ResponseSuccessHelper<Integer>(result, true));
+			
+//			return ResponseEntity.ok(req);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return ResponseEntity.ok(new ResponseErrorHelper<String>(e.getMessage(), false));
