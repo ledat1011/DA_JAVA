@@ -17,6 +17,6 @@ public interface SavePostRepository extends JpaRepository<savepost, Long> {
 	
 	@Transactional
 	@Modifying
-	@Query(value = "DELETE FROM savepost WHERE IdUser =?1 AND IdPost =?2", nativeQuery = true)
+	@Query(value = "DELETE FROM savepost WHERE IdU0ser =?1 AND IdPost =?2", nativeQuery = true)
 	Integer delete(int idUser, int idPost);
 }
