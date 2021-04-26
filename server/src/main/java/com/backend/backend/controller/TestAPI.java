@@ -14,6 +14,7 @@ import com.backend.backend.model.posts;
 import com.backend.backend.model.savepost;
 import com.backend.backend.model.typepost;
 import com.backend.backend.model.users;
+import com.backend.backend.repository.BannerRepository;
 import com.backend.backend.repository.BinhLuanRepository;
 import com.backend.backend.repository.DistrictRepository;
 import com.backend.backend.repository.FormPostRepository;
@@ -31,6 +32,8 @@ import com.backend.backend.repository.UserRepository;
 @RequestMapping("/api")
 public class TestAPI {
 	
+	@Autowired
+	private BannerRepository bannerRepo;
 	@Autowired
 	private tienichRepository tienichRepo; 
 	@Autowired
@@ -59,7 +62,7 @@ public class TestAPI {
 	public ResponseEntity<?>  getAll() {
 		try {
 			
-			return  ResponseEntity.ok(tienichRepo.findAll());
+			return  ResponseEntity.ok(bannerRepo.findAll());
 		} catch (Exception e) {
 			
 			return ResponseEntity.ok(e);
