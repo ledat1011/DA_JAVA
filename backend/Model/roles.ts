@@ -2,7 +2,7 @@ import { BuildOptions, DataTypes as DataType , Model, Sequelize } from "sequeliz
 
  interface rolesAttributes {
     id: number;
-    name_roles: string;
+    name: string;
     Description: string;
    
 }
@@ -22,7 +22,7 @@ export function roles (sequelize: Sequelize): RoleStatic {
             unique: true,
             autoIncrement: true
           },
-          name_roles:{
+          name:{
             type:DataType.STRING(50)
           },
           Description:DataType.STRING

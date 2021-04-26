@@ -222,10 +222,10 @@ export default class ManagePosts extends React.Component {
           post: arr,
           isPending: false
         })
-      }else{
+      } else {
         this.setState({
-          err:data.error,
-          showAlert:true
+          err: data.error,
+          showAlert: true
         })
       }
     })
@@ -234,7 +234,6 @@ export default class ManagePosts extends React.Component {
 
   }
   render() {
-
     return (
       <div  >
 
@@ -296,7 +295,7 @@ export default class ManagePosts extends React.Component {
                       <td>{c.price}</td>
                       <td>1.500</td>
                       <td>
-                      <i class={"fa " + (c.TrangThaiDatCoc?  "fa-check text-success": "fa-times text-danger")} aria-hidden="true"></i> 
+                        <i class={"fa " + (c.TrangThaiDatCoc ? "fa-check text-success" : "fa-times text-danger")} aria-hidden="true"></i>
                       </td>
                       <td>
                         <ul

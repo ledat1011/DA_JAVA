@@ -23,12 +23,16 @@ import com.backend.backend.repository.SavePostRepository;
 import com.backend.backend.repository.StreetRepository;
 import com.backend.backend.repository.TypePostRepository;
 import com.backend.backend.repository.WardRepository;
+import com.backend.backend.repository.tienichRepository;
 import com.backend.backend.repository.UserRepository;
 
 
 @RestController
 @RequestMapping("/api")
 public class TestAPI {
+	
+	@Autowired
+	private tienichRepository tienichRepo; 
 	@Autowired
 	private SavePostRepository savepostRepo;
 	@Autowired
@@ -55,7 +59,7 @@ public class TestAPI {
 	public ResponseEntity<?>  getAll() {
 		try {
 			
-			return  ResponseEntity.ok(userRepo.findAll());
+			return  ResponseEntity.ok(tienichRepo.findAll());
 		} catch (Exception e) {
 			
 			return ResponseEntity.ok(e);

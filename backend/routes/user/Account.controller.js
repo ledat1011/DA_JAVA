@@ -42,22 +42,22 @@ router.post('/register', async function (req, res, next) {
     try {
         var checkResign = await db.User.findAndCountAll({
             where: {
-                Email: data.fEmail,
+                Email: data.Email,
                 Id_LoaiDangNhap: 1
             }
         })
         if (checkResign.count == 0) {
             let newUser = await db.User.create({
-                Email: data.fEmail,
+                Email: data.Email,
                 Id_LoaiDangNhap: 1,
-                First_name: data.fFirst_name,
-                Last_name: data.fLast_name,
-                PhoneNumber: data.fPhoneNumber,
+                First_name: data.First_name,
+                Last_name: data.Last_name,
+                PhoneNumber: data.PhoneNumber,
                 ConfirmEmaiil: false,
                 Id_role: 2,
                 Created_at: Date.now(),
                 Money: 10000,
-                PassWord: data.fPass,
+                PassWord: data.PassWord,
                 block: false,
             })
             const accessToken = await jwtHelper.generateToken(newUser, accessTokenSecret, accessTokenLife);
@@ -69,11 +69,11 @@ router.post('/register', async function (req, res, next) {
          
             res.json({ accessToken, refreshToken, user: newUser, status: true });
         } else {
-            res.json({ status: false, messege: "Tài khoản đã tồn tại" })
+            res.json({ status: false, error: "Tài khoản đã tồn tại" })
         }
 
     } catch (e) {
-        res.json({ status: false, messege: e.toString() })
+        res.json({ status: false, error: e.toString() })
         console.log(e);
     }
 

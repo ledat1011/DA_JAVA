@@ -4,7 +4,7 @@ var db = require('../../database');
 
 router.get('/getall',(req,res)=>{
     db.User.findAll(
-        {include:[{model:db.Role},{model:db.LoaiDangNhap}]}
+        {include:[{model:db.User_roles ,include :db.Role},{model:db.LoaiDangNhap}]}
     )
     .then(data=>{
         res.send({status:true,data:data})
@@ -49,7 +49,7 @@ router.delete('/deleteuser/:idUser',(req,res)=>{
 router.get("/get/:id",(req,res)=>{
     var {id} = req.params;
     db.User.findByPk(id,{
-        include:{model:db.Role}
+        include:{model:db.User_roles}
     })
     .then(data=> res.send({status:true,data:data}))
     .catch(e=> res.send({status:false,error:e}));

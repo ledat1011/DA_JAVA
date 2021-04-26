@@ -7,7 +7,7 @@ import { host } from '../_type';
   * @param {*} idUser
   * @returns {* {status:boolen, messeage :""} } 
   */
- const _delete = (idPost,idUser)=> axios.delete(host.Node+'/api/savepost/delete',{data:{idUser:idUser,idPost:idPost}}).then( data => data.data)
+ const _delete = (idPost,idUser)=> axios.delete(host.Java+'/api/savepost/delete',{data:{IdUser:idUser,IdPost:idPost}}).then( data => data.data)
  const check = (idPost,idUser)=> axios.get(host.Node+'/api/savepost/check',{params:{idPost:idPost,idUser:idUser}}).then( data => data.data);
  
  /**

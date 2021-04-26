@@ -70,12 +70,14 @@ class Dangky extends React.Component {
 
   render() {
     const { showAlert } = this.state;
+    const { err, alert } = this.props.data;
     return (
       <div>
         <Header></Header>
         {/* Khung đăng nhập */}
         <div className="bg-register">
           <div className=" login-position">
+          {err ? <div className="alert alert-danger" style={{ position: 'absolute', left: "36%" }} role="alert">{alert}</div> : ''}
             <div className="login-form">
               <h3 className="titleLogin">Đăng ký</h3>
               {/* Họ và tên */}

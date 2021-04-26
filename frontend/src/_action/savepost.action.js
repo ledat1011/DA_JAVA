@@ -68,7 +68,7 @@ const remove = (idUser,idPost)=>{
     return async dispatch => {
         try {
             var _remove = await savepost.delete(idPost,idUser)
-            
+                console.log(_remove);
             if(_remove.status){
                 dispatch(sucssess(idPost))
             }else{

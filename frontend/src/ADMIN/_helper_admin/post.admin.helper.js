@@ -1,10 +1,10 @@
 import axios from "axios"
-
+import {host} from "../../_type/host.type"
 /** Get all post
  * @param none
  * @return { *status: true/false,data: list posts/error} 
  */
-const getall = () => axios.get("/api/admin/post/getall").then(data => data.data);
+const getall = () => axios.get(host.Node+"/api/admin/post/getall").then(data => data.data);
 
 /** update post
  * @param idPost
@@ -17,7 +17,7 @@ const getall = () => axios.get("/api/admin/post/getall").then(data => data.data)
  * @param {*} idPost
  * @returns {*{status:boolen,data/error}} 
  */
-const confirm = (id) => axios.put("/api/admin/post/confirm",{id:id}).then(data=>data.data);
+const confirm = (id) => axios.put(host.Node+"/api/admin/post/confirm",{id:id}).then(data=>data.data);
 
 export const managePostHelper = {
     getall:getall,

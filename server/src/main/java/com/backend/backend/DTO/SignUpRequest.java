@@ -1,47 +1,63 @@
 package com.backend.backend.DTO;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SignUpRequest {
 
-	private String first_name;
+	private String First_name;
 
-	private String last_name;
+	private String Last_name;
 
-	private String email;
+	private String Email;
 
-	private String password;
+	private String PassWord;
+	
+	private BigInteger PhoneNumber;
 
+	@JsonProperty("First_name")
 	public String getFirst_name() {
-		return first_name;
+		return First_name;
 	}
 
 	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+		First_name = first_name;
 	}
-
+	@JsonProperty("Last_name")
 	public String getLast_name() {
-		return last_name;
+		return Last_name;
 	}
 
 	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+		Last_name = last_name;
 	}
-
+	@JsonProperty("Email")
 	public String getEmail() {
-		return email;
+		return Email;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		Email = email;
+	}
+	@JsonProperty("PassWord")
+	public String getPassWord() {
+		return PassWord;
 	}
 
-	public String getPassword() {
-		return password;
+	public void setPassWord(String passWord) {
+		PassWord = passWord;
+	}
+	@JsonProperty("PhoneNumber")
+	public BigInteger getPhoneNumber() {
+		return PhoneNumber;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPhoneNumber(BigInteger phoneNumber) {
+		PhoneNumber = phoneNumber;
 	}
-
+	
+	
 }

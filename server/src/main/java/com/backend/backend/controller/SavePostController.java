@@ -1,9 +1,12 @@
 package com.backend.backend.controller;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,17 +44,18 @@ public class SavePostController {
 		
 		
 	}
-//	@PostMapping("/delete")
-//	public  ResponseEntity<?>  delete(@Validated @RequestBody savepost req){
-//		try {
-//			savepost sv  = new savepost(req.getIdUser(),req.getIdPost());
-//		 result = savePostRepo.delete(sv);
-//			return ResponseEntity.ok(new ResponseSuccessHelper<savepost>(result, true));
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			return ResponseEntity.ok(new ResponseErrorHelper<String>(e.getMessage(), false));
-//		}
-//		
+	@DeleteMapping("/delete")
+	public  ResponseEntity<?>  delete(@Validated @RequestBody savepost req){
+		try {
+			
+			
+			Integer result = savePostRepo.delete(req.getIdUser(), req.getIdPost());
+			return ResponseEntity.ok(new ResponseSuccessHelper<Integer>(result, true));
+		} catch (Exception e) {
+			// TODO: handle exception
+			return ResponseEntity.ok(new ResponseErrorHelper<String>(e.getMessage(), false));
+		}
 		
-//	}
+		
+	}
 }

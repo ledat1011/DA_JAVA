@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+import com.backend.backend.model.users;
 import com.backend.backend.service.UserDetailsImpl;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -35,6 +36,17 @@ public class JwtUtils {
 		return Jwts.builder()
 				.setSubject(userDetailsImpl.getEmail())
 				.setId( userDetailsImpl.getId().toString())
+				.setIssuedAt(new Date())
+				.setExpiration(new Date(new Date().getTime() + jwtExpirationMs))
+				.signWith(SignatureAlgorithm.HS512, jwtSectret)
+				.compact();
+	}
+public String generateJwtToken(users user) {
+		
+		
+		return Jwts.builder()
+				.setSubject(user.getEmail())
+				.setId( String.valueOf(user.getId()) )
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(new Date().getTime() + jwtExpirationMs))
 				.signWith(SignatureAlgorithm.HS512, jwtSectret)

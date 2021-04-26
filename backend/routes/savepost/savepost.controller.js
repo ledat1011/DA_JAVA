@@ -17,12 +17,12 @@ router.post("/create", async (req, res) => {
 })
 router.delete("/delete", async (req, res) => {
 
-    var { idUser, idPost } = req.body;
+    var { IdUser, IdPost } = req.body;
     try {
         var create = await db.SavePost.destroy({
             where: {
-                IdPost: idPost,
-                IdUser: idUser
+                IdPost: IdPost,
+                IdUser: IdUser
             }
         })
         res.send({ status: true, messeage: create })

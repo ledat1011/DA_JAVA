@@ -31,7 +31,7 @@ function roles(sequelize) {
             unique: true,
             autoIncrement: true
         },
-        name_roles: {
+        name: {
             type: sequelize_1.DataTypes.STRING(50)
         },
         Description: sequelize_1.DataTypes.STRING

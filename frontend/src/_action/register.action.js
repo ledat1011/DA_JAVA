@@ -13,7 +13,7 @@ export const register =  (user,prevPath) => {
             dispatch(success(regis.user))
             dispatch(alert_success("Đăng ký thành công"))
         }else{
-            dispatch(failure(regis.messege))
+            dispatch(failure(regis.error))
         }
     }catch(e){
         dispatch(failure(e +" "))

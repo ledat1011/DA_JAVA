@@ -22,6 +22,7 @@ export default class ManageUser extends React.Component {
       $("#dataTable").DataTable();
     });
     manageUserHelper.getall().then((data) => {
+      console.log(data);
       if (data.status) {
         this.setState({
           user: data.data,
@@ -76,7 +77,7 @@ export default class ManageUser extends React.Component {
                           <td>
                             {c.First_name} {c.Last_name}
                           </td>
-                          <td>{c.role.name_roles}</td>
+                          <td>{ c.user_roles.role? c.user_roles.role.name :"Customner"}</td>
                           <td>Tokyo</td>
                           <td>{c.loaidangnhap.ten}</td>
                           <td>10</td>

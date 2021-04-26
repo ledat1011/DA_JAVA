@@ -79,7 +79,6 @@ public class UserController {
 	public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
 		try {
 
-			log.error(loginRequest.toString());
 			Authentication authentication = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassWord()));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -104,35 +103,44 @@ public class UserController {
 
 	}
 
-	@PostMapping("/signup")
+	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody com.backend.backend.DTO.SignUpRequest signUpRequest) {
-		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("User exsist"));
+		
+		try {
+			if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+				return ResponseEntity.ok(new ErrorResponse("Tài khoản đã tồn tại", false));
 
+			}
+
+			
+
+//	         Creating user's account
+			users user = new users(signUpRequest.getFirst_name(), signUpRequest.getLast_name(), signUpRequest.getPhoneNumber(),
+					signUpRequest.getEmail(), passWordEncoder.encode(signUpRequest.getPassWord()), (double) 100000, false,
+					new Date(), new Date(), false, 1);
+
+//	        user.setPassword(passwordEncoder.encode(user.getPassword()));
+	//
+//	        roles userRole = RoleRepository.findByname(ERole.admin)
+//	                .orElseThrow(() -> new AppException("User Role not set."));
+	//
+//	        user.setRoles(Collections.singleton(userRole));
+	//
+			users result = userRepository.save(user);
+	//
+//	        URI location = ServletUriComponentsBuilder
+//	                .fromCurrentContextPath().path("/users/{username}")
+//	                .buildAndExpand(result.getEmail()).toUri();
+
+//	        return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
+			String JWT = jwtUtils.generateJwtToken(result);
+			return ResponseEntity.ok(new JwtResponse(JWT, user, savepostRepo.findByIdUser(user.getId()),true));
+//			return ResponseEntity.ok(signUpRequest);
+			
+		} catch (Exception e) {
+			return ResponseEntity.ok(new ErrorResponse(e.getMessage(), false));
 		}
-
-		BigInteger phone = BigInteger.valueOf(1234);
-
-//         Creating user's account
-		users user = new users(signUpRequest.getFirst_name(), signUpRequest.getLast_name(), phone,
-				signUpRequest.getEmail(), passWordEncoder.encode(signUpRequest.getPassword()), (double) 100000, false,
-				new Date(), new Date(), false, 1);
-
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//
-//        roles userRole = RoleRepository.findByname(ERole.admin)
-//                .orElseThrow(() -> new AppException("User Role not set."));
-//
-//        user.setRoles(Collections.singleton(userRole));
-//
-		users result = userRepository.save(user);
-//
-//        URI location = ServletUriComponentsBuilder
-//                .fromCurrentContextPath().path("/users/{username}")
-//                .buildAndExpand(result.getEmail()).toUri();
-
-//        return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
-		return null;
+		
 	}
 
 	@PostMapping("/auth")
