@@ -5,6 +5,7 @@ import PhongTro from './DanhSachPhongtroComponent/PhongTro';
 import Footer from './layout/Footer';
 import Header from './layout/Header';
 import queryString from 'query-string'
+import ThanhTimKiem from './layout/SearchBar';
 
 export default class ResultSearchComponent extends Component {
   constructor(props) {

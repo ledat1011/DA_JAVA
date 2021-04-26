@@ -81,11 +81,13 @@ router.get('/getpostbyid/:id', async (req, res) => {
             }, {
                 model: db.TienIch,
                 include: db.LoaiTienIch
-            }, {
+            }, 
+            {
                 model: db.TypePost
             }, {
                 model: db.FormPost
-            }, {
+            }, 
+            {
                 model: db.User,
                 attributes: ["id", "First_name", "Last_name", "Email", "PhoneNumber"]
             }, {
@@ -94,20 +96,19 @@ router.get('/getpostbyid/:id', async (req, res) => {
                     model: db.User,
                     attributes: ["id", "First_name", "Last_name", "Email", "PhoneNumber"]
                 },
-            }, {
-                model: db.User,
-                attributes: ["id", "First_name", "Last_name", "Email", "PhoneNumber"],
-                as: "danhgias",
-            }, {
-                model: db.SavePost
             },
-            {
-                model: db.Province
-            }, {
-                model: db.District
-            }, {
-                model: db.Ward
-            }
+            //  {
+            //     model: db.User,
+            //     attributes: ["id", "First_name", "Last_name", "Email", "PhoneNumber"],
+            //     as: "danhgias",
+            // },
+            // {
+            //     model: db.Province
+            // }, {
+            //     model: db.District
+            // }, {
+            //     model: db.Ward
+            // }
             ]
         })
         // plus view

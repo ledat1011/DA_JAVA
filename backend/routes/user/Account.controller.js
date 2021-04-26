@@ -79,6 +79,22 @@ router.post('/register', async function (req, res, next) {
 
 });
 
+router.get("/get", async(req,res)=>{
+    try{
+        let user = await db.User.findByPk(1,{
+            include:{
+                model:db.User_roles
+            }
+        })
+        res.json(user)
+    }catch(e){
+        console.log(e);
+        res.json(e)
+    }
+
+
+})
+
 router.put("/confirmemail", async(req,res)=>{
     const {idUser,confirmtoken} = req.body;
     if(confirmtoken == tokenConfirm[idUser]){

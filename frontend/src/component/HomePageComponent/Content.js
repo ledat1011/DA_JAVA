@@ -24,6 +24,7 @@ class Content extends React.Component {
     }
     if(this.state.province.length ===0){
       provinceData().then(val => this.setState({province:val}))
+     
     }
   }
   componentDidMount() {
@@ -43,6 +44,7 @@ class Content extends React.Component {
   
   
   render(){
+    
     return (
      
       <section>

@@ -3,12 +3,11 @@ var router = express.Router();
 var db = require('../../database');
 
 router.post("/create", async (req, res) => {
-    console.log(req.body);
-    var { idUser, idPost } = req.body;
+    var { IdUser, IdPost } = req.body;
     try {
         var create = await db.SavePost.create({
-            IdPost: idPost,
-            IdUser: idUser
+            IdPost: IdPost,
+            IdUser: IdUser
         })
         res.send({ status: true, messeage: create })
     } catch (e) {

@@ -46,6 +46,7 @@ import com.backend.backend.DTO.MessageResponse;
 import com.backend.backend.common.ERole;
 import com.backend.backend.common.JwtUtils;
 import com.backend.backend.model.newbie;
+import com.backend.backend.model.posts;
 import com.backend.backend.model.roles;
 import com.backend.backend.model.savepost;
 import com.backend.backend.model.users;
@@ -171,5 +172,6 @@ public class UserController {
 		}
 
 	}
-
+	
+	
 }

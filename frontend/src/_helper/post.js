@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { host } from '../_type';
-export const GET_POST_BY_PROVINCE = (idProvince) => axios.get(host.Node+'/api/post/getpostbyprovince/' + idProvince).then(data => data.data)
+export const GET_POST_BY_PROVINCE = (idProvince) => axios.get(host.Java+'/api/post/getpostbyprovince/' + idProvince).then(data => data.data)
 /**
  * for detail
  * @param {*} id
@@ -17,7 +17,7 @@ export const getPostByIdV3 = (id) => axios.get(host.Node+'/api/post/v3/getpostby
  * @param {*} idUser
  * @returns {*{status:boolen,data/error} } 
  */
-export const getPostByIdV1 =(idUser)=> axios.get(host.Node+'/api/post/v1/getpostbyid/'+idUser).then(data=>data.data);
+export const getPostByIdV1 =(idUser)=> axios.get(host.Java+'/api/post/v1/getpostbyid/'+idUser).then(data=>data.data);
 
 const suggesst = (location) => axios.get(host.Node+"/api/post/suggesstpost", { params: location }).then(data => data.data);
 const create = (data) => axios.post(host.Node+`/api/post/create`, data, {
@@ -25,7 +25,7 @@ const create = (data) => axios.post(host.Node+`/api/post/create`, data, {
     'Content-Type': 'multipart/form-data'
   }
 }).then(data => data.data)
-const search = (data) => axios.get(host.Node+`/api/post/search`, { params: data }).then(data => data.data)
+const search = (data) => axios.get(host.Java+`/api/post/search`, { params: data }).then(data => data.data)
 /**
  * 
  * @param {*} id

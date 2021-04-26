@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { host } from '../_type';
- const create = (idPost,idUser)=> axios.post(host.Node+'/api/savepost/create',{idPost:idPost,idUser:idUser}).then( data => data.data)
+ const create = (idPost,idUser)=> axios.post(host.Java+'/api/savepost/create',{IdPost:idPost,IdUser:idUser}).then( data => data.data)
  /**
   * 
   * @param {*} idPost 

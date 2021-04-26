@@ -24,6 +24,7 @@ router.get('/province',async (req,res,next)=>{
                 
             },group: ['province.id']
         });
+        
         res.json(province);
     }catch(e){
         res.send(e)

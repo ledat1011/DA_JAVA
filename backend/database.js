@@ -40,7 +40,7 @@ var dbConfig = new sequelize.Sequelize((process.env.DB_DATABASE || "dacn_db"), (
         acquire: 30000,
         idle: 10000
     },
-    logging: false
+    // logging: false
 });
 // SOMETHING VERY IMPORTANT them Factory functions expect a
 // sequelize instance as parameter give them `dbConfig`

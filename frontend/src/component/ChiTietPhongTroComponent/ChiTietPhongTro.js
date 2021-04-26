@@ -284,6 +284,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 
+
 const mapDispatchToProps = {
   addSavePost: savePostAction.create,
   removeSavePost: savePostAction.remove

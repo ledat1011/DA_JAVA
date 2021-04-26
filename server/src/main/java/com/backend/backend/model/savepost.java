@@ -28,12 +28,18 @@ public class savepost {
 	@JsonProperty("IdPost")
 	private int IdPost;
 
+	public savepost(int idUser, int idPost) {
+		super();
+		this.idUser = idUser;
+		IdPost = idPost;
+	}
+	public savepost() {}
 	public int getIdUser() {
 		return idUser;
 	}
 
 	public void setIdUser(int idUser) {
-		idUser = idUser;
+		this.idUser = idUser;
 	}
 
 	public int getIdPost() {

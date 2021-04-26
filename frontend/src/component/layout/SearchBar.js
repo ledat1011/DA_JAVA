@@ -278,7 +278,7 @@ class ThanhTimKiem extends React.Component {
               onChange={this.changeProvince}
               className="form-control w-100"
             >
-              <option value="">Tỉnh thành</option>
+              <option value="0">Tỉnh thành</option>
 
               {Array.isArray(this.state.province) &&
                 this.state.province.map((val, index) => (
@@ -297,7 +297,7 @@ class ThanhTimKiem extends React.Component {
               name="fDistrict"
               className="form-control w-100"
             >
-              <option value="">Quận huyện</option>
+              <option value="0">Quận huyện</option>
               {this.state.district.map((val, index) => (
                 <option key={index} value={val.id}>
                   {val._prefix} {val._name}
@@ -314,7 +314,7 @@ class ThanhTimKiem extends React.Component {
               onChange={this.changeWard}
               className="form-control w-100"
             >
-              <option value="">Phường xã</option>
+              <option value="0">Phường xã</option>
               {this.state.ward.map((val, index) => (
                 <option key={index} value={val.id}>
                   {val._prefix} {val._name}
